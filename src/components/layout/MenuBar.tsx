@@ -11,25 +11,11 @@ export default function MenuBar() {
   ]
 
   return (
-    <div className="w-full sticky top-[228px] z-40 bg-white dark:bg-gray-900">
+    <div className="w-full sticky top-[228px] z-40 bg-white dark:bg-gray-900 border-t border-b border-gray-300">
       {/* Centering wrapper */}
       <div className="flex justify-center w-full">
         {/* MenuBar Layout */}
-        <div
-          className="opacity-100"
-          style={{
-            width: '2560px',
-            height: '86px',
-            paddingTop: '24px',
-            paddingRight: '480px',
-            paddingBottom: '24px',
-            paddingLeft: '480px',
-            borderTopWidth: '1px',
-            borderBottomWidth: '1px',
-            borderColor: '#D9D9D9',
-            transform: 'rotate(0deg)'
-          }}
-        >
+        <div className="w-full max-w-[2560px] px-2 sm:px-4 md:px-6 lg:px-[480px] xl:px-[480px] py-6">
           <div className="flex items-center" style={{ justifyContent: 'space-between' }}>
           {/* Left Menu Items */}
           <nav

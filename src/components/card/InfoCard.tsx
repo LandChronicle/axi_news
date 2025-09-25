@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import CategoryLabel from '@/components/indicators/CategoryLabel'
 
 interface InfoCardProps {
   title: string
@@ -46,34 +47,9 @@ export default function InfoCard({
 
       {/* Category - Positioned on image */}
       <div className="relative z-10">
-        <span
-          className="text-white"
-          style={{
-            height: '32px',
-            paddingTop: '5px',
-            paddingRight: '10px',
-            paddingBottom: '5px',
-            paddingLeft: '10px',
-            gap: '10px',
-            transform: 'rotate(0deg)',
-            opacity: 1,
-            borderRadius: '8px',
-            background: '#F83A47',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'absolute',
-            top: '1px',
-            zIndex: 10,
-            fontWeight: 400,
-            fontSize: '16px',
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            whiteSpace: 'nowrap'
-          }}
-        >
-          {category}
-        </span>
+        <div style={{ position: 'absolute', top: '1px', zIndex: 10 }}>
+          <CategoryLabel text={category} position="relative" />
+        </div>
       </div>
 
       {/* Bottom Content Section */}
@@ -126,7 +102,7 @@ export default function InfoCard({
             margin: '0 0 2px 0'
           }}
         >
-          ·{publishDate}
+          ·&nbsp;&nbsp;{publishDate}
         </span>
       </div>
     </div>

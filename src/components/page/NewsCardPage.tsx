@@ -6,7 +6,7 @@ export default function NewsCardPage() {
     {
       id: 1,
       title: "데모 계좌로 외환거래 훈련하기",
-      excerpt: "외환 거래의 기초부터 심화까지, 데모 계좌를 활용한 실전 훈련 방법을 알아보세요.",
+      excerpt: "외환 거래의 기초부터 심화까지, 데모 계좌를 활용한 실전 훈련 방법을 알아보세요.외환 거래의 기초부터 심화까지, 데모 계좌를 활용한 실전 훈련 방법을 알아보세요.외환 거래의 기초부터 심화까지, 데모 계좌를 활용한 실전 훈련 방법을 알아보세요.",
       imageUrl: "/api/placeholder/527/200",
       publishDate: "3월 29, 2025",
       category: "교육자료",
@@ -60,14 +60,9 @@ export default function NewsCardPage() {
   ]
 
   return (
-    <section>
-      <div
-        className="grid grid-cols-2 gap-8"
-        style={{
-          width: '100%',
-          maxWidth: '1100px'
-        }}
-      >
+    <section className="w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 w-full justify-items-center xl:justify-items-start">
+
         {mockNewsData.map((news) => (
           <NewsCard
             key={news.id}

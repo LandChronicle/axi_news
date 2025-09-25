@@ -6,7 +6,8 @@
       "Bash(npx next:*)",
       "Bash(curl:*)",
       "Bash(sudo apt-get install:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(magick:*)"
     ],
     "deny": [],
     "ask": []

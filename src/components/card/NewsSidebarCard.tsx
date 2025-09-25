@@ -1,3 +1,5 @@
+import CategoryLabel from '@/components/indicators/CategoryLabel'
+
 interface NewsSidebarCardProps {
   title: string
   timeAgo: string
@@ -40,31 +42,9 @@ export default function NewsSidebarCard({
       >
         {/* Category - positioned at top left */}
         {category && (
-          <span
-            className="text-white absolute top-0 left-0"
-            style={{
-              width: '79px',
-              height: '32px',
-              paddingTop: '5px',
-              paddingRight: '10px',
-              paddingBottom: '5px',
-              paddingLeft: '10px',
-              gap: '10px',
-              transform: 'rotate(0deg)',
-              opacity: 1,
-              borderRadius: '8px',
-              background: '#F83A47',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '16px',
-              fontWeight: 400,
-              lineHeight: '100%',
-              letterSpacing: '0%'
-            }}
-          >
-            {category}
-          </span>
+          <div style={{ position: 'absolute', top: '0', left: '0' }}>
+            <CategoryLabel text={category} position="relative" />
+          </div>
         )}
 
         {/* Title and Date aligned with category */}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
 import MenuBar from '@/components/layout/MenuBar'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'AXI News',
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Header />
         <MenuBar />
         {children}
+        <Footer />
       </body>
     </html>
   )

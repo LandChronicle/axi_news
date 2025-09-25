@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import CategoryLabel from '@/components/indicators/CategoryLabel'
 
 interface NewsCardProps {
   title: string
@@ -19,10 +20,10 @@ export default function NewsCard({
 }: NewsCardProps) {
   return (
     <div
-      className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+      className="bg-white cursor-pointer w-full max-w-[559.5px] mx-auto sm:mx-0"
       style={{
-        width: '527.5px',
-        height: '487.5px',
+        height: 'auto',
+        minHeight: '520px',
         borderRadius: '8px',
         padding: '16px',
         display: 'flex',
@@ -31,82 +32,89 @@ export default function NewsCard({
       }}
       onClick={() => window.open(href, '_blank')}
     >
+      {/* Category - positioned at top left */}
+      <CategoryLabel text={category} />
+
       {/* Image Section */}
-      <div className="relative w-full h-48 mb-4">
+      <div
+        className="relative mb-4 mt-14 w-full max-w-[527.5px]"
+        style={{
+          height: '241px',
+          borderRadius: '8px',
+          background: '#D9D9D9'
+        }}
+      >
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover"
+            style={{ borderRadius: '8px' }}
+          />
+        ) : null}
+      </div>
+
+      {/* Title */}
+      <div
+        className="flex items-center justify-between mb-3 w-full max-w-[527.5px]"
+        style={{
+          height: '32px'
+        }}
+      >
+        <h3
+          className="text-gray-900 line-clamp-2 flex-1"
+          style={{
+            fontWeight: 500,
+            fontSize: '18px',
+            lineHeight: '140%'
+          }}
+        >
+          {title}
+        </h3>
         <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover rounded-md"
+          src="/images/button.png"
+          alt="Link icon"
+          width={32}
+          height={32}
+          style={{
+            cursor: 'pointer',
+            marginLeft: '10px'
+          }}
+          onClick={() => window.open(href, '_blank')}
         />
       </div>
 
-      {/* Category - positioned at top left */}
-      <span
-        style={{
-          width: '79px',
-          height: '32px',
-          paddingTop: '5px',
-          paddingRight: '10px',
-          paddingBottom: '5px',
-          paddingLeft: '10px',
-          gap: '10px',
-          transform: 'rotate(0deg)',
-          opacity: 1,
-          borderRadius: '8px',
-          background: '#F83A47',
-          position: 'absolute',
-          top: '16px',
-          left: '16px',
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontWeight: 500,
-          fontSize: '16px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          color: '#FFFFFF'
-        }}
-      >
-        {category}
-      </span>
-
-      {/* Title */}
-      <h3
-        className="text-gray-900 mb-3 line-clamp-2"
-        style={{
-          fontWeight: 500,
-          fontSize: '18px',
-          lineHeight: '140%',
-          letterSpacing: '0%'
-        }}
-      >
-        {title}
-      </h3>
-
-      {/* Excerpt */}
-      <p
-        className="text-gray-600 mb-4 line-clamp-3"
-        style={{
-          fontSize: '14px',
-          lineHeight: '140%'
-        }}
-      >
-        {excerpt}
-      </p>
-
       {/* Date */}
-      <div className="mt-auto">
+      <div className="mb-3">
         <span
           className="text-gray-500"
           style={{
-            fontSize: '14px',
-            fontWeight: 400
+            fontWeight: 500,
+            fontSize: '16px'
           }}
         >
-          {publishDate}
+          ·&nbsp;&nbsp;{publishDate}
         </span>
+      </div>
+
+      {/* Excerpt */}
+      <div
+        className="text-gray-600 w-full max-w-[527.5px]"
+        style={{
+          height: '28px',
+          fontWeight: 500,
+          fontSize: '14px',
+          lineHeight: '14px',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          wordBreak: 'break-word'
+        }}
+      >
+        {excerpt}
       </div>
     </div>
   )
